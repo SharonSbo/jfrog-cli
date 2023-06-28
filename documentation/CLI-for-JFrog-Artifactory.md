@@ -1840,9 +1840,9 @@ jf pipec --global
 
 #### Installing Python packages
 
-The **pip install**,  **pipenv install** and **poetry install** commands use the **pip**, **pipenv** and **poetry** clients respectively, to install the project dependencies from Artifactory. The commands can also record these packages as build dependencies as part of the build-info published to Artifactory.
+The **pip install** and **pipenv install** commands use the **pip** and **pipenv** clients respectively, to install the project dependencies from Artifactory. The commands can also record these packages as build dependencies as part of the build-info published to Artifactory.
 
-> **Note**: Before running the **pip install**, **pipenv install** and **poetry install** commands on a project for the first time, the project should be configured using the **pip-config** ,**pipenv-config** or **poetry-config** commands respectively.
+> **Note**: Before running the **pip install** and **pipenv install** commands on a project for the first time, the project should be configured using the **pip-config** ,**pipenv-config** or **poetry-config** commands respectively.
 
 **Recording all dependencies**
 JFrog CLI records the installed packages as build-info dependencies. The recorded dependencies are packages installed during the **jf rt pip-install** command execution. When running the command inside a Python environment, which already has some of the packages installed, the installed packages will not be included as part of the build-info, because they were not originally installed by JFrog CLI. A warning message will be added to the log in this case.
@@ -1882,13 +1882,6 @@ Example 2
 The following command triggers pipenv install, while recording the build dependencies as part of build name **my-build** and build number **1** .
 ```
 jf pipenv install . --build-name my-build --build-number 1
-```
-
-Example 3
-
-The following are command triggers poetry install, while recording the build dependencies as part of build name **my-build** and build number **1** .
-```
-jf poetry install . --build-name my-build --build-number 1
 ```
 ### Building NuGet Packages
 
